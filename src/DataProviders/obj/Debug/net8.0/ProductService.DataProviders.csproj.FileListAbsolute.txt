@@ -1,0 +1,11 @@
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/bin/Debug/net8.0/ProductService.DataProviders.deps.json
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/bin/Debug/net8.0/ProductService.DataProviders.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/bin/Debug/net8.0/ProductService.DataProviders.pdb
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.AssemblyInfoInputs.cache
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.AssemblyInfo.cs
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.csproj.CoreCompileInputs.cache
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/refint/ProductService.DataProviders.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ProductService.DataProviders.pdb
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/DataProviders/obj/Debug/net8.0/ref/ProductService.DataProviders.dll

@@ -1,0 +1,11 @@
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/bin/Debug/net8.0/ProductService.Services.deps.json
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/bin/Debug/net8.0/ProductService.Services.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/bin/Debug/net8.0/ProductService.Services.pdb
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.AssemblyInfoInputs.cache
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.AssemblyInfo.cs
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.csproj.CoreCompileInputs.cache
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/refint/ProductService.Services.dll
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ProductService.Services.pdb
+/Users/bogdanmihaila/Desktop/MibostarArt Project/ProductService/src/Services/obj/Debug/net8.0/ref/ProductService.Services.dll
