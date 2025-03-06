@@ -25,8 +25,8 @@ public class MongoDbService
         return _database.GetCollection<ProductModel>("products");
     }
 
-    public IMongoCollection<ProductModel> GetProductCategoriesCollection()
+    public IMongoCollection<ProductCategoryModel> GetProductCategoriesCollection()
     {
-        return _database.GetCollection<ProductModel>("productCategories");
+        return _database.GetCollection<ProductCategoryModel>("productCategories");
     }
 }

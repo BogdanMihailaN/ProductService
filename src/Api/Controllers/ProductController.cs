@@ -17,14 +17,14 @@ namespace ProductService.Api
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProductsAsync()
         {
             var products = await _productService.GetAllProductsAsync();
             return Ok(products);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductById(Guid id)
+        public async Task<IActionResult> GetProductByIdAsync(Guid id)
         {
             var product = await _productService.GetProductByIdAsync(id);
             if (product == null)
@@ -35,22 +35,22 @@ namespace ProductService.Api
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductModel newProduct)
+        public async Task<IActionResult> CreateProductAsync([FromBody] ProductModel newProduct)
         {
             newProduct.Id = Guid.NewGuid();
             await _productService.CreateProductAsync(newProduct);
-            return CreatedAtAction(nameof(GetProductById), new { id = newProduct.Id }, newProduct);
+            return CreatedAtAction(nameof(GetProductByIdAsync), new { id = newProduct.Id }, newProduct);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(Guid id, [FromBody] ProductModel updatedProduct)
+        public async Task<IActionResult> UpdateProductAsync(Guid id, [FromBody] ProductModel updatedProduct)
         {
             await _productService.UpdateProductAsync(id, updatedProduct);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(Guid id)
+        public async Task<IActionResult> DeleteProductAsync(Guid id)
         {
             await _productService.DeleteProductAsync(id);
             return NoContent();

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Product;
+using Repositories.ProductCategoryRepository;
 
 namespace Repositories
 {
@@ -8,6 +9,7 @@ namespace Repositories
         public static IServiceCollection AddProductRepositories(this IServiceCollection services)
         {
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategory.ProductCategoryRepository>();
             return services;
         }
     }
