@@ -14,10 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\ProductService.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\ProductService.Infrastructure.csproj" />
-    <ProjectReference Include="..\Repositories\ProductService.Repositories.csproj" />
     <ProjectReference Include="..\Services\ProductService.Services.csproj" />
     <ProjectReference Include="..\Utility\ProductService.Utility.csproj" />
-    <ProjectReference Include="..\DataProviders\ProductService.DataProviders.csproj" />
   </ItemGroup>
 
 </Project>
