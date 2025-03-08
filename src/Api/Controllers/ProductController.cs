@@ -39,7 +39,7 @@ namespace ProductService.Api
         {
             newProduct.Id = Guid.NewGuid();
             await _productService.CreateProductAsync(newProduct);
-            return CreatedAtAction(nameof(GetProductByIdAsync), new { id = newProduct.Id }, newProduct);
+            return Ok(newProduct);
         }
 
         [HttpPut("{id}")]
