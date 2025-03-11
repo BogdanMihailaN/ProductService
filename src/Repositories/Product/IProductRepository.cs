@@ -7,7 +7,7 @@ namespace Repositories.Product
         Task<List<ProductModel>> GetAllProductsAsync();
         Task<ProductModel> GetProductByIdAsync(int id);
         Task CreateProductAsync(ProductModel product);
-        Task UpdateProductAsync(int id, ProductModel updatedProduct);
+        Task UpdateProductAsync(ProductModel updatedProduct);
         Task DeleteProductAsync(int id);
     }
 }

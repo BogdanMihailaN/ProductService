@@ -7,7 +7,7 @@ namespace Repositories.ProductCategoryRepository
        Task<List<ProductCategoryModel>> GetAllProductCategoriesAsync();
         Task<ProductCategoryModel> GetProductCategoryByIdAsync(int id);
         Task CreateProductCategoryAsync(ProductCategoryModel productCategory);
-        Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory);
+        Task UpdateProductCategoryAsync(ProductCategoryModel updatedProductCategory);
         Task DeleteProductCategoryAsync(int id); 
     }
 }

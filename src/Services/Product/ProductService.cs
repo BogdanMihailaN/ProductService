@@ -34,7 +34,8 @@ namespace Services.Product
 
         public async Task UpdateProductAsync(int id, ProductModel updatedProduct)
         {
-            await _productRepository.UpdateProductAsync(id, updatedProduct);
+            updatedProduct.Id = id;
+            await _productRepository.UpdateProductAsync(updatedProduct);
         }
     }
 }

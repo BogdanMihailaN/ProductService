@@ -38,10 +38,9 @@ namespace Repositories.Product
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateProductAsync(int id, ProductModel updatedProduct)
+        public async Task UpdateProductAsync(ProductModel updatedProduct)
         {
             var productEntity = _mapper.Map<ProductService.Domain.Entities.Product>(updatedProduct);
-            productEntity.Id = id;
             _context.Products.Update(productEntity);
             await _context.SaveChangesAsync();
         }

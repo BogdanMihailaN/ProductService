@@ -34,7 +34,8 @@ namespace Services.ProductCategoryService
 
         public async Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory)
         {
-            await _productCategoryRepository.UpdateProductCategoryAsync(id, updatedProductCategory);
+            updatedProductCategory.Id = id;
+            await _productCategoryRepository.UpdateProductCategoryAsync(updatedProductCategory);
         }
     }
 }

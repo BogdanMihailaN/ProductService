@@ -39,10 +39,9 @@ namespace Repositories.ProductCategory
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory)
+        public async Task UpdateProductCategoryAsync(ProductCategoryModel updatedProductCategory)
         {
             var productCategoryEntity = _mapper.Map<ProductService.Domain.Entities.ProductCategory>(updatedProductCategory);
-            productCategoryEntity.Id = id;
             _context.ProductCategories.Update(productCategoryEntity);
             await _context.SaveChangesAsync();
         }
