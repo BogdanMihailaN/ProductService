@@ -1,5 +1,5 @@
-using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProductService.Domain.Models;
 using Services.Product;
 
 namespace ProductService.Api 
@@ -24,7 +24,7 @@ namespace ProductService.Api
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductByIdAsync(Guid id)
+        public async Task<IActionResult> GetProductByIdAsync(int id)
         {
             var product = await _productService.GetProductByIdAsync(id);
             if (product == null)
@@ -37,20 +37,19 @@ namespace ProductService.Api
         [HttpPost]
         public async Task<IActionResult> CreateProductAsync([FromBody] ProductModel newProduct)
         {
-            newProduct.Id = Guid.NewGuid();
             await _productService.CreateProductAsync(newProduct);
             return Ok(newProduct);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProductAsync(Guid id, [FromBody] ProductModel updatedProduct)
+        public async Task<IActionResult> UpdateProductAsync(int id, [FromBody] ProductModel updatedProduct)
         {
             await _productService.UpdateProductAsync(id, updatedProduct);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductAsync(Guid id)
+        public async Task<IActionResult> DeleteProductAsync(int id)
         {
             await _productService.DeleteProductAsync(id);
             return NoContent();

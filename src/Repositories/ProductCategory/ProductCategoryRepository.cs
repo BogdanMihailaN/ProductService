@@ -1,5 +1,7 @@
-using Domain.Models;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
+using ProductService.Domain.Models;
 using ProductService.Infrastructure;
 using Repositories.ProductCategoryRepository;
 
@@ -7,42 +9,52 @@ namespace Repositories.ProductCategory
 {
     public class ProductCategoryRepository : IProductCategoryRepository
     {
-        private readonly MongoDbService _mongoDbService;
+        private readonly ProductServiceDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductCategoryRepository(MongoDbService mongoDbService)
+        public ProductCategoryRepository(ProductServiceDbContext context, IMapper mapper)
         {
-            _mongoDbService = mongoDbService;
+            _context = context;
+            _mapper = mapper;
         }
 
         public async Task<List<ProductCategoryModel>> GetAllProductCategoriesAsync()
         {
-            var collection = _mongoDbService.GetProductCategoriesCollection();
-            return await collection.Find(_ => true).ToListAsync();
+            var productCategories = await _context.ProductCategories.ToListAsync();
+            var productCategoriesModels = _mapper.Map<List<ProductCategoryModel>>(productCategories);
+            return productCategoriesModels;
         }
 
-        public async Task<ProductCategoryModel> GetProductCategoryByIdAsync(Guid id)
+        public async Task<ProductCategoryModel> GetProductCategoryByIdAsync(int id)
         {
-            var collection = _mongoDbService.GetProductCategoriesCollection();
-            return await collection.Find(product => product.Id == id).FirstOrDefaultAsync();
+            var productCategory = await _context.ProductCategories.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+            var productCategoryModel = _mapper.Map<ProductCategoryModel>(productCategory);
+            return productCategoryModel;
         }
 
-        public async Task CreateProductCategoryAsync(ProductCategoryModel product)
+        public async Task CreateProductCategoryAsync(ProductCategoryModel productCategory)
         {
-            var collection = _mongoDbService.GetProductCategoriesCollection();
-            await collection.InsertOneAsync(product);
+            var productCategoryEntity = _mapper.Map<ProductService.Domain.Entities.ProductCategory>(productCategory);
+            await _context.ProductCategories.AddAsync(productCategoryEntity);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateProductCategoryAsync(Guid id, ProductCategoryModel updatedProduct)
+        public async Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory)
         {
-            var collection = _mongoDbService.GetProductCategoriesCollection();
-            updatedProduct.Id = id;
-            await collection.ReplaceOneAsync(product => product.Id == id, updatedProduct);
+            var productCategoryEntity = _mapper.Map<ProductService.Domain.Entities.ProductCategory>(updatedProductCategory);
+            _context.ProductCategories.Update(productCategoryEntity);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteProductCategoryAsync(Guid id)
+        public async Task DeleteProductCategoryAsync(int id)
         {
-            var collection = _mongoDbService.GetProductCategoriesCollection();
-            await collection.DeleteOneAsync(product => product.Id == id);
+            var productCategoryModel = await GetProductCategoryByIdAsync(id);
+            var productCategory = _mapper.Map<ProductService.Domain.Entities.ProductCategory>(productCategoryModel);
+            if (productCategory != null)
+            {
+                _context.ProductCategories.Remove(productCategory);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

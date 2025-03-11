@@ -1,13 +1,13 @@
-using Domain.Models;
+using ProductService.Domain.Models;
 
 namespace Repositories.ProductCategoryRepository
 {
     public interface IProductCategoryRepository
     {
        Task<List<ProductCategoryModel>> GetAllProductCategoriesAsync();
-        Task<ProductCategoryModel> GetProductCategoryByIdAsync(Guid id);
-        Task CreateProductCategoryAsync(ProductCategoryModel product);
-        Task UpdateProductCategoryAsync(Guid id, ProductCategoryModel updatedProduct);
-        Task DeleteProductCategoryAsync(Guid id); 
+        Task<ProductCategoryModel> GetProductCategoryByIdAsync(int id);
+        Task CreateProductCategoryAsync(ProductCategoryModel productCategory);
+        Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory);
+        Task DeleteProductCategoryAsync(int id); 
     }
 }

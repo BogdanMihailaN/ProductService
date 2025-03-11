@@ -1,13 +1,8 @@
-using System.Text.Json.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace Domain.Models
+namespace ProductService.Domain.Models
 {
     public class ProductCategoryModel
     {
-        [BsonId]
-        [JsonIgnore]
-        public Guid Id { get; set; }
-        public string Category{ get; set;}
+        public int Id { get; set; }  // ID-ul categoriei
+        public string Name { get; set; }  // Numele categoriei
     }
 }

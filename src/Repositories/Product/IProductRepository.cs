@@ -1,14 +1,13 @@
-
-using Domain.Models;
+using ProductService.Domain.Models;
 
 namespace Repositories.Product
 {
     public interface IProductRepository
     {
         Task<List<ProductModel>> GetAllProductsAsync();
-        Task<ProductModel> GetProductByIdAsync(Guid id);
+        Task<ProductModel> GetProductByIdAsync(int id);
         Task CreateProductAsync(ProductModel product);
-        Task UpdateProductAsync(Guid id, ProductModel updatedProduct);
-        Task DeleteProductAsync(Guid id);
+        Task UpdateProductAsync(int id, ProductModel updatedProduct);
+        Task DeleteProductAsync(int id);
     }
 }

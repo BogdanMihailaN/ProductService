@@ -1,4 +1,4 @@
-using Domain.Models;
+using ProductService.Domain.Models;
 using Repositories.Product;
 
 namespace Services.Product
@@ -17,7 +17,7 @@ namespace Services.Product
             await _productRepository.CreateProductAsync(product);
         }
 
-        public async Task DeleteProductAsync(Guid id)
+        public async Task DeleteProductAsync(int id)
         {
             await _productRepository.DeleteProductAsync(id);
         }
@@ -27,12 +27,12 @@ namespace Services.Product
             return await _productRepository.GetAllProductsAsync();
         }
 
-        public async Task<ProductModel> GetProductByIdAsync(Guid id)
+        public async Task<ProductModel> GetProductByIdAsync(int id)
         {
             return await _productRepository.GetProductByIdAsync(id);
         }
 
-        public async Task UpdateProductAsync(Guid id, ProductModel updatedProduct)
+        public async Task UpdateProductAsync(int id, ProductModel updatedProduct)
         {
             await _productRepository.UpdateProductAsync(id, updatedProduct);
         }

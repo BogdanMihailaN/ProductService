@@ -1,13 +1,13 @@
-using Domain.Models;
+using ProductService.Domain.Models;
 
 namespace Services.ProductCategoryService
 {
     public interface IProductCategoryService
     {
         Task<List<ProductCategoryModel>> GetAllProductCategoriesAsync();
-        Task<ProductCategoryModel> GetProductCategoryByIdAsync(Guid id);
+        Task<ProductCategoryModel> GetProductCategoryByIdAsync(int id);
         Task CreateProductCategoryAsync(ProductCategoryModel product);
-        Task UpdateProductCategoryAsync(Guid id, ProductCategoryModel updatedProductCategory);
-        Task DeleteProductCategoryAsync(Guid id);
+        Task UpdateProductCategoryAsync(int id, ProductCategoryModel updatedProductCategory);
+        Task DeleteProductCategoryAsync(int id);
     }
 }

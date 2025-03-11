@@ -10,11 +10,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-builder.Services.AddInfrastructureServices();
-
-builder.Services.AddProductRepositories();
-
 builder.Services.AddProductServices();
+builder.Services.AddProductRepositories();
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
