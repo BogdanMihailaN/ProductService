@@ -5,28 +5,29 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
-namespace ProductService.Infrastructure;
-
-public class MongoDbService
+namespace ProductService.Infrastructure
 {
-    private readonly IMongoDatabase _database;
-
-    public MongoDbService(IConfiguration configuration)
+    public class MongoDbService
     {
-        var client = new MongoClient(configuration.GetValue<string>("MongoDbSettings:ConnectionString"));
+        private readonly IMongoDatabase _database;
 
-        BsonSerializer.RegisterSerializer(typeof(Guid), new GuidSerializer(GuidRepresentation.Standard));
+        public MongoDbService(IConfiguration configuration)
+        {
+            var client = new MongoClient(configuration.GetValue<string>("MongoDbSettings:ConnectionString"));
 
-        _database = client.GetDatabase(configuration.GetValue<string>("MongoDbSettings:DatabaseName"));
-    }
+            BsonSerializer.RegisterSerializer(typeof(Guid), new GuidSerializer(GuidRepresentation.Standard));
 
-    public IMongoCollection<ProductModel> GetProductCollection()
-    {
-        return _database.GetCollection<ProductModel>("products");
-    }
+            _database = client.GetDatabase(configuration.GetValue<string>("MongoDbSettings:DatabaseName"));
+        }
 
-    public IMongoCollection<ProductCategoryModel> GetProductCategoriesCollection()
-    {
-        return _database.GetCollection<ProductCategoryModel>("productCategories");
+        public IMongoCollection<ProductModel> GetProductCollection()
+        {
+            return _database.GetCollection<ProductModel>("products");
+        }
+
+        public IMongoCollection<ProductCategoryModel> GetProductCategoriesCollection()
+        {
+            return _database.GetCollection<ProductCategoryModel>("productCategories");
+        }
     }
 }
